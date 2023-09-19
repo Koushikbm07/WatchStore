@@ -1,0 +1,100 @@
+body{
+    margin: 0;
+   padding-top: 70px;
+   font-size: 16px;
+    font-family: Roboto,bold;
+    
+}
+
+
+/* Slideshow Home CSS */
+
+
+
+.slider-box {
+    width     : 100%;
+    max-height: 90vh;
+    position  : relative;
+    overflow  : hidden;
+    margin    : 30px auto;
+}
+
+.slider {
+    width     : 100%;
+    display   : inline-flex;
+    transition: 0.7s;
+}
+
+#slider img {
+    width: 100%;
+}
+
+.indicators {
+    position : absolute;
+    left     : 50%;
+    bottom   : 20px;
+    transform: translateX(-50%);
+}
+
+.indicators span {
+    display      : inline-block;
+    width        : 15px;
+    height       : 15px;
+    border-radius: 50%;
+    background   : rgba(43, 40, 40, 0.5);
+    cursor       : pointer;
+}
+
+.active {
+    background: #ffff !important;
+}
+
+/* End of the Slideshow */
+
+/* Shop for */
+.headlines{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 20px;
+}
+
+
+/* carlouse for products */
+
+.wrapper{
+    /* margin: auto; */
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height:400px ;
+    background-color: rgb(237, 235, 235);
+}
+.image-list{
+    display: inline-flex;
+    width: calc(300px *11);
+    animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+    0%{
+        transform: translateX(0px);
+    }
+    100%{
+        transform: translateX(calc(-250px * 6));
+    }
+}
+.image-box{
+    text-align: center;
+    width: 300px;
+    margin: 10px;
+}
+.image-box img{
+    width: 100%;
+   border: 1px solid rgb(204, 197, 197);
+    
+}
+
+

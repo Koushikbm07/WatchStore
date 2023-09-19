@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%@include file="includes/nav.jsp"%>
+
 
 </body>
 </html>

@@ -29,7 +29,33 @@
                             <a class="btn-dec" href="q-inc-dec?action=dec&pid=">
                                 <i class="fas fa-minus-square"></i>
                             </a>
-                            <input style="width:50px;margin:10px;"  type="text" name="quantity" value="" readonly>
+                            <input style="width:50px;margin:0 10px;"  type="text" name="quantity" value="" readonly>
+                            <a style="margin-left:0;" class="btn-incre" href="q-inc-dec?action=inc&pid=">
+                                <i class="fas fa-plus-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bottom">
+                    <a class="action" id="remove" href="">Remove</a>
+                     <a class="action" id="remove"  href="">Wishlist</a>
+                </div>
+            </div>
+            <div class="cart-product">
+                <div class="top">
+                    <div class="product-image">
+                        <img src="images\products\TitanSmart2.webp" alt="">
+                    </div>
+                    <div class="product-summary">
+                    	<p class="product-title">Titan smart</p>
+                        <p class="description">Just cavalli Women Snake Oval Green Watches</p>
+                        <p class="price">9256</p>
+                         <div class="quanti">
+                            <a class="btn-dec" href="q-inc-dec?action=dec&pid=">
+                                <i class="fas fa-minus-square"></i>
+                            </a>
+                            <input style="width:50px;margin:0 10px;"  type="text" name="quantity" value="" readonly>
                             <a style="margin-left:0;" class="btn-incre" href="q-inc-dec?action=inc&pid=">
                                 <i class="fas fa-plus-square"></i>
                             </a>

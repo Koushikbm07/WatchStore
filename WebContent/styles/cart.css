@@ -28,9 +28,10 @@ body{
 .cart-product{
     padding: 0;
     margin-bottom: 20px;
+    
 }
 .cart-products .cart-product .top {
-    display: grid;
+    display: grid;	
     grid-template-columns: 1fr 2fr;
     width: 90%;
     padding: 20px;

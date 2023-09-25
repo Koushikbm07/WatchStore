@@ -14,20 +14,20 @@
     <div class="header">
         <a href="index.jsp"><img class="logo" src="images/nav/logo.png" alt=""></a>
         <div class="header-options">
-            <a href="watches.jsp">Watches</a>
-            <a href="brands.jsp">Brands</a>
-            <a href="men.jsp">Men</a>
-            <a href="women.jsp">Women</a>
+            <a class="item" href="watches.jsp">Watches</a>
+            <a class="item" href="brands.jsp">Brands</a>
+            <a class="item" href="men.jsp">Men</a>
+            <a class="item" href="women.jsp">Women</a>
             <input type="search" placeholder="Search products, brands...">
         </div>
         <div class="header-icons">
-            <a href="login.jsp">Login</a>
+            <a class="item" href="login.jsp">Login</a>
             
-            	<a href="wishlist.jsp"><img src="images/nav/wishlist.png" alt=""></a>
-                <a href="account.jsp"><i class="fa-regular fa-user"></i></a>
+            	<a class="item" href="wishlist.jsp"><img src="images/nav/wishlist.png" alt=""></a>
+                <a class="item" href="account.jsp"><i class="fa-regular fa-user"></i></a>
               
             
-              <a href="cart.jsp"> <i class="fa-solid fa-cart-shopping"></i></a>
+              <a class="item" href="cart.jsp"> <i class="fa-solid fa-cart-shopping"></i></a>
         </div>
     </div>
 

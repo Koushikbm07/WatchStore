@@ -25,11 +25,10 @@
             <input placeholder="**********" type="password" name="password" id="password" for="password">
             <button type="submit"> Login </button>
             <a href="forgotpassword.jsp">Forget Password ?</a>
-            <a href="register.jsp">New to WatchStore ? 
-            </a>
+            <a href="register.jsp">New to WatchStore ? </a>
         </div>
         
-    </form>
+</form>
 
 </body>
 </html>

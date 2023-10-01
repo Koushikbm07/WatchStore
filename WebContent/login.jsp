@@ -12,7 +12,7 @@
 <%@include file="includes/nav.jsp"%>
 
 
-<form action="LoginServlet" method="post">
+<form action="login" method="post">
         <div class="container">
             <div class="container-top">
                 <img src="images/nav/logo.png" alt="watchstore">

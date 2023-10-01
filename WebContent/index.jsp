@@ -47,70 +47,70 @@
 				<img src="images\products\kidswatches.webp" alt="">
 				 <a
 					href="kids.jsp">
-					<p>kids Watches</p>
+					<p class="watch-title">kids Watches</p>
 				</a>
 			</div>
 
 			<div class="image-box">
 				<img src="images\products\menwatches.webp" alt=""> <a
 					href="men.jsp">
-					<p>Mens Watches</p>
+					<p class="watch-title">Mens Watches</p>
 				</a>
 
 			</div>
 			<div class="image-box">
 				<img src="images\products\TitanRagaCeramics.webp" alt=""> <a
 					href="women.jsp">
-					<p>Women Watches</p>
+					<p class="watch-title">Women Watches</p>
 				</a>
 
 			</div>
 			<div class="image-box">
 				<img src="images\products\wallclocks.webp" alt=""> <a
 					href="wallclocks.html">
-					<p>wall Clocks</p>
+					<p class="watch-title"> wall Clocks</p>
 				</a>
 
 			</div>
 			<div class="image-box">
 				<img src="images\products\TitanTalk.webp" alt=""> <a
 					href="smart.html">
-					<p>Smart Watches</p>
+					<p class="watch-title">Smart Watches</p>
 				</a>
 
 			</div>
 			<div class="image-box">
 				<img src="images\products\kidswatches.webp" alt=""> <a
 					href="kids.html">
-					<p>kids Watches</p>
+					<p class="watch-title">kids Watches</p>
 				</a>
 			</div>
 
 			<div class="image-box">
 				<img src="images\products\menwatches.webp" alt=""> <a
 					href="men.html">
-					<p>Mens Watches</p>
+					<p class="watch-title">Mens Watches</p>
 				</a>
 
 			</div>
 			<div class="image-box">
 				<img src="images\products\TitanRagaCeramics.webp" alt=""> <a
 					href="women.html">
-					<p>Women Watches</p>
+					<p class="watch-title">Women Watches</p>
 				</a>
 
 			</div>
 			<div class="image-box">
 				<img src="images\products\wallclocks.webp" alt=""> <a
 					href="wallclocks.html">
-					<p>wall Clocks</p>
+					<p class="watch-title">wall Clocks</p>
 				</a>
 
 			</div>
 			<div class="image-box">
 				<img src="images\products\TitanTalk.webp" alt=""> <a
 					href="smart.html">
-					<p>Smart Watches</p>
+					<p class="watch-title">Smart Watches</p>
 				</a>
 
 			</div>
@@ -126,70 +126,70 @@
 			<div class="image-box">
 				<img src="images\products\kidswatches.webp" alt=""> <a
 					href="kids.html">
-					<p>kids Watches</p>
+					<p class="watch-title">kids Watches</p>
 				</a>
 			</div>
 
 			<div class="image-box">
 				<img src="images\products\menwatches.webp" alt=""> <a
 					href="men.html">
-					<p>Mens Watches</p>
+					<p class="watch-title">Mens Watches</p>
 				</a>
 
 			</div>
 			<div class="image-box">
 				<img src="images\products\TitanRagaCeramics.webp" alt=""> <a
 					href="women.html">
-					<p>Women Watches</p>
+					<p class="watch-title">Women Watches</p>
 				</a>
 
 			</div>
 			<div class="image-box">
 				<img src="images\products\wallclocks.webp" alt=""> <a
 					href="wallclocks.html">
-					<p>wall Clocks</p>
+					<p class="watch-title">wall Clocks</p>
 				</a>
 
 			</div>
 			<div class="image-box">
 				<img src="images\products\TitanTalk.webp" alt=""> <a
 					href="smart.html">
-					<p>Smart Watches</p>
+					<p class="watch-title">Smart Watches</p>
 				</a>
 
 			</div>
 			<div class="image-box">
 				<img src="images\products\kidswatches.webp" alt=""> <a
 					href="kids.html">
-					<p>kids Watches</p>
+					<p class="watch-title">kids Watches</p>
 				</a>
 			</div>
 
 			<div class="image-box">
 				<img src="images\products\menwatches.webp" alt=""> <a
 					href="men.html">
-					<p>Mens Watches</p>
+					<p class="watch-title">Mens Watches</p>
 				</a>
 
 			</div>
 			<div class="image-box">
 				<img src="images\products\TitanRagaCeramics.webp" alt=""> <a
 					href="women.html">
-					<p>Women Watches</p>
+					<p class="watch-title">Women Watches</p>
 				</a>
 
 			</div>
 			<div class="image-box">
 				<img src="images\products\wallclocks.webp" alt=""> <a
 					href="wallclocks.html">
-					<p>wall Clocks</p>
+					<p class="watch-title">wall Clocks</p>
 				</a>
 
 			</div>
 			<div class="image-box">
 				<img src="images\products\TitanTalk.webp" alt=""> <a
 					href="smart.html">
-					<p>Smart Watches</p>
+					<p class="watch-title">Smart Watches</p>
 				</a>
 
 			</div>

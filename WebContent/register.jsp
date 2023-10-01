@@ -13,7 +13,7 @@
 <%@include file="includes/nav.jsp"%>
 
 
-<form action="RegisterServlet" method="post">
+<form action="register" method="post">
         <div style="height: 80vh;" class="container">
             <div class="container-top">
                 <img src="images/nav/logo.png" alt="watchstore">
@@ -21,6 +21,8 @@
                
             </div>
             
+            <label for="uname">User Name</label>
+            <input placeholder="Enter your username" type="text" name="uname" id="uname" for="uname" required>
             <label for="email">Email</label>
             <input placeholder="koushik@gmail.com" type="email" name="email" id="email" for="email" required>
             <label for="password">Password</label>
@@ -35,8 +37,8 @@
             </select>
             <label for="gender">Gender</label>
             <select name="gender" id="gender">
-                <option value="user">Male</option>
-                <option value="admin">Female</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
             </select>
             
             <button type="submit"> Register</button>

@@ -4,9 +4,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>My Account</title>
 </head>
 <body>
 <%@include file="includes/nav.jsp"%>
+
+
+
 </body>
 </html>

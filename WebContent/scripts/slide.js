@@ -1,4 +1,3 @@
-console.log("in index");
 var slide = document.getElementById("slider");
 var btn1 = document.getElementById('btn1');
 var btn2 = document.getElementById('btn2');

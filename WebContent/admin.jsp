@@ -4,12 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Wishlist</title>
+<title>Admin</title>
 </head>
 <body>
-
-
-<%@include file="includes/nav.jsp"%>
 
 </body>
 </html>

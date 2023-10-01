@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public class QuantityIncDec extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		
 		
 		

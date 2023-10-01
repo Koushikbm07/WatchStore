@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,7 @@
 <title>My Cart</title>
  <link rel="stylesheet" href="styles/cart.css">
 </head>
-<body style="padding-top:120px;">
+<body style="padding-top:120px;padding-bottom:70px;">
 
 
 
@@ -73,6 +74,8 @@
             <strong>SUMMARY</strong>
             <div class="order-summary">
                 <p class="left">MRP</p>
+                <p class="right">Price</p>
+                <p class="left">Discount</p>
                 <p class="right">Price</p>
                 <p class="left">Delivery</p>
                 <p class="right">Price</p>

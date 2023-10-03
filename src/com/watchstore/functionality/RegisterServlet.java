@@ -29,7 +29,16 @@ public class RegisterServlet extends HttpServlet {
 		String gender=request.getParameter("gender");
 		String userType=request.getParameter("usertype");
 		
-		dbinjector.addUser(uname, email, password, gender, userType);
+		try {
+			
+			dbinjector.addUser(uname, email, password, gender, userType);
+			response.sendRedirect("login.jsp");
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("Registration Failed");
+			response.sendRedirect("register.jsp");
+		}
 	
 		
 	}

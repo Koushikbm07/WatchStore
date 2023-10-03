@@ -1,6 +1,8 @@
+<%@page import="com.watchstore.math.Calculate"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
+<%@page import="com.watchstore.model.*" %>
+<%@page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,24 +15,34 @@
 
 
 <%@include file="includes/nav.jsp"%>
+<%
+ArrayList<Cart> cartList=(ArrayList<Cart>)request.getSession().getAttribute("cart-list");
+List<Cart> carts=cartList;
+int totalCart=Calculate.getTotalCart(carts) ;
+int totalMRP=Calculate.getTotalCartMRP(carts);
+int totalDisclount=Calculate.getTotalCartDiscount(carts);
 
-<strong id="my-cart">My Cart Products</strong>
+%>
+
+<strong id="my-cart">My Cart Products ( <%=carts.size() %> ) </strong>
     <div class="cart-container">
         <div class="cart-products">
+        <% for(Cart cart : carts){ 
+        %>
             <div class="cart-product">
                 <div class="top">
                     <div class="product-image">
-                        <img src="images\products\TitanSmart2.webp" alt="">
+                        <img src="images\products\<%=cart.getPhoto() %>" alt="">
                     </div>
                     <div class="product-summary">
-                    	<p class="product-title">Titan smart</p>
-                        <p class="description">Just cavalli Women Snake Oval Green Watches</p>
-                        <p class="price">9256</p>
+                    	<p class="product-title"><%=cart.getTitle() %></p>
+                        <p class="description"><%=cart.getDesc() %></p>
+                        <p class="price"><%=cart.getPrice()*cart.getQuantity() %></p>
                          <div class="quanti">
                             <a class="btn-dec" href="q-inc-dec?action=dec&pid=">
                                 <i class="fas fa-minus-square"></i>
                             </a>
-                            <input style="width:50px;margin:0 10px;"  type="text" name="quantity" value="" readonly>
+                            <input style="width:50px;margin:0 10px;"  type="text" name="quantity" value="<%=cart.getQuantity() %>" readonly>
                             <a style="margin-left:0;" class="btn-incre" href="q-inc-dec?action=inc&pid=">
                                 <i class="fas fa-plus-square"></i>
                             </a>
@@ -39,48 +51,23 @@
                 </div>
 
                 <div class="bottom">
-                    <a class="action" id="remove" href="">Remove</a>
-                     <a class="action" id="remove"  href="">Wishlist</a>
+                    <a class="action" id="remove" href="remove-cart?pid=<%=cart.getId() %>">Remove</a>
+                     <a class="action" id="wishlist"  href="wishlist?pic=<%=cart.getId() %>">Wishlist</a>
                 </div>
             </div>
-            <div class="cart-product">
-                <div class="top">
-                    <div class="product-image">
-                        <img src="images\products\TitanSmart2.webp" alt="">
-                    </div>
-                    <div class="product-summary">
-                    	<p class="product-title">Titan smart</p>
-                        <p class="description">Just cavalli Women Snake Oval Green Watches</p>
-                        <p class="price">9256</p>
-                         <div class="quanti">
-                            <a class="btn-dec" href="q-inc-dec?action=dec&pid=">
-                                <i class="fas fa-minus-square"></i>
-                            </a>
-                            <input style="width:50px;margin:0 10px;"  type="text" name="quantity" value="" readonly>
-                            <a style="margin-left:0;" class="btn-incre" href="q-inc-dec?action=inc&pid=">
-                                <i class="fas fa-plus-square"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bottom">
-                    <a class="action" id="remove" href="">Remove</a>
-                     <a class="action" id="remove"  href="">Wishlist</a>
-                </div>
-            </div>
+            <%} %>
         </div>
         <div class="cart-summary">
             <strong>SUMMARY</strong>
             <div class="order-summary">
                 <p class="left">MRP</p>
-                <p class="right">Price</p>
+                <p class="right"> &#8377; <%= totalMRP %></p>
                 <p class="left">Discount</p>
-                <p class="right">Price</p>
+                <p class="right"> &#8377; <%= totalDisclount%></p>
                 <p class="left">Delivery</p>
-                <p class="right">Price</p>
+                <p class="right">&#8377; ${(totalCart>500)?0:totalCart}</p>
                 <p class="left">Total</p>
-                <p class="right">Price</p>
+                <p class="right"> &#8377; <%=totalCart%></p>
             </div>
                 <a id="place-order" class="action" href="">Place Order</a>          
              

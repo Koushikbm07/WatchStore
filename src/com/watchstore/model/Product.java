@@ -9,12 +9,11 @@ public class Product {
 	private int discount;
 	private String type;
 	private Brand brand;
-	private String img;
 	
 	
 	public Product() {}
-	public Product(int id, String title, String desc, int price, String photo, int discount, String type, Brand brand,
-			String img, int stock) {
+	public Product(int id, String title, String desc,String photo, int price, int discount, String type, 
+			 int stock,Brand brand) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -24,7 +23,7 @@ public class Product {
 		this.discount = discount;
 		this.type = type;
 		this.brand = brand;
-		this.img = img;
+	
 		this.stock = stock;
 	}
 	public int getId() {
@@ -75,12 +74,7 @@ public class Product {
 	public void setBrand(Brand brand) {
 		this.brand = brand;
 	}
-	public String getImg() {
-		return img;
-	}
-	public void setImg(String img) {
-		this.img = img;
-	}
+	
 	public int getStock() {
 		return stock;
 	}

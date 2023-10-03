@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.watchstore.dfHandler.dbConnection;
+import com.watchstore.dfHandler.dfFetcher;
 import com.watchstore.validator.Validator;
-
+import com.watchstore.model.*;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -22,7 +23,27 @@ public class LoginServlet extends HttpServlet {
 		String password=request.getParameter("password");
 		
 		boolean res=Validator.validUser(email,password);
-		
+		try {
+		if(res ) {
+			User user=dfFetcher.fetchUser(email, password);
+			request.getSession().setAttribute("auth", user);
+			if(user.getType().equalsIgnoreCase("admin")) {
+				response.sendRedirect("admin.jsp");
+			}
+			
+			response.sendRedirect("index.jsp");
+			
 		}
+		else {
+			System.out.println("Email and password dont match");
+		}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("Login Failed");
+			response.sendRedirect("login.jsp");
+		}
+		
+	}
 
 }

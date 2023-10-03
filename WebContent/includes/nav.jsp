@@ -11,6 +11,11 @@
 	href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
 	>
 </head>
+<%@page import="com.watchstore.model.*" %>
+<%
+User auth=(User) request.getSession().getAttribute("auth");
+
+%>
     <div class="header">
         <a href="index.jsp"><img class="logo" src="images/nav/logo.png" alt=""></a>
         <div class="header-options">
@@ -21,13 +26,16 @@
             <input type="search" placeholder="Search products, brands...">
         </div>
         <div class="header-icons">
+        
+        <% if(auth==null) {%>
             <a class="item" href="login.jsp">Login</a>
-            
-            	<a class="item" href="wishlist.jsp"><img src="images/nav/wishlist.png" alt=""></a>
-                <a class="item" href="account.jsp"><i class="fa-regular fa-user"></i></a>
-              
-            
-              <a class="item" href="cart.jsp"> <i class="fa-solid fa-cart-shopping"></i></a>
+               <%} else {%> 
+                <a class="item" href="#">${ auth.getUname()}</a> 
+            <a class="item" href="wishlist.jsp"><img src="images/nav/wishlist.png" alt=""></a>
+     		 <a class="item" href="account.jsp"><i class="fa-regular fa-user"></i></a>
+         
+         <%} %>
+         <a class="item" href="cart.jsp"> <i class="fa-solid fa-cart-shopping"></i></a>
         </div>
     </div>
 

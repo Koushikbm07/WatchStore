@@ -1,9 +1,11 @@
 package com.watchstore.model;
 
 public class Cart extends Product{
-	private int quantity;
+	private int quantity=1;
 	
 	public Cart(){}
+
+	
 
 	public int getQuantity() {
 		return quantity;
@@ -12,6 +14,8 @@ public class Cart extends Product{
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+
+	
 	
 	
 }

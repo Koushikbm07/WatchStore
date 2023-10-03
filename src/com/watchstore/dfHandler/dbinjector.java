@@ -32,89 +32,60 @@ public class dbinjector {
 		}
 		
 	}
-	
-	public static boolean addProduct(String pid,String pname,String pdesc,String pprice, String pimg,String pstock) {
+	public static boolean addBrand(int bid,String bname,String bimg) {
+		String sql="INSERT INTO brand values(?,?,?)";
+		try {
+			Connection conn = dbConnection.getConnection();
+			PreparedStatement ps=conn.prepareStatement(sql);
+			ps.setInt(1, bid);
+			ps.setString(2, bname);
+			ps.setString(3, bimg);
+			ps.executeQuery();
+			conn.close();
+			return true;
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("Brand Not Added ");
+		}
+		return false;
 		
-		String sql="INSERT INTO products VALUES(?,?,?,?,?,?)";
+	}
+	public static boolean addProduct(String pname,String pdesc,String pimg ,int pprice,int discount,String pType,int pstock,int bid) {
+		
+		String sql="INSERT INTO product VALUES(prod.nextval,?,?,?,?,?,?,?,?)";
 		
 		
 		try {
 			Connection conn = dbConnection.getConnection();
 			
 			PreparedStatement rs=conn.prepareStatement(sql);	
-			rs.setInt(1,Integer.parseInt(pid));
-			rs.setString(2, pname);
-			rs.setString(3, pdesc);
-			rs.setInt(4,Integer.parseInt(pprice));
-			rs.setString(5, pimg);
-			rs.setInt(6, Integer.parseInt(pstock));
+			
+			rs.setString(1, pname);
+			rs.setString(2, pdesc);
+			rs.setString(3, pimg);
+			rs.setInt(4,pprice);
+			rs.setInt(5,discount);
+			rs.setString(6,pType);
+			rs.setInt(7, pstock);
+			rs.setInt(8, bid);
 			rs.executeUpdate();
 			conn.close();
 			return true;
 			
 		}
 		catch (Exception e) {
-			System.out.println("Cannot add product , try Again");
 			e.printStackTrace();
-			return false;
+			System.out.println("Cannot add product , try Again");
+			
 		}
-		
+		return false;
 		
 		
 	}
-	public static boolean deleteProduct(String pid) {
-		
-		String sql="DELETE FROM products WHERE PID=?";
-		boolean status=false;
-		
-		try {
-			Connection conn = dbConnection.getConnection();
-			
-			PreparedStatement rs=conn.prepareStatement(sql);
-			rs.setInt(1, Integer.parseInt(pid));
-			rs.executeUpdate();
-			conn.close();
+	
 
-			status=true;
-			
-		}
-		catch (Exception d) {
-			d.printStackTrace();
-			System.out.println("Cannot delete the product");
-			
-		}
-		finally {
-			return status;
-		}
-		
-	}
-	public static boolean updatePassword(String mail,String pass ){
-		String sql="UPDATE CUSTOMERS SET pass=? WHERE mail=? ";
-		boolean status=false;
-		
-		try {
-			Connection conn = dbConnection.getConnection();
-			
-			PreparedStatement rs=conn.prepareStatement(sql);
-			rs.setString(1,pass);
-			rs.setString(2,mail);
-			rs.executeUpdate();
-			conn.close();
-
-			status=true;
-			
-		}
-		catch (Exception d) {
-			d.printStackTrace();
-			System.out.println("Cannot change the password");
-			
-		}
-		finally {
-			return status;
-		}
-		
-
-	}
 	
 	
 }

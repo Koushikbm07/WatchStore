@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="com.watchstore.model.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,8 @@
   <link rel="stylesheet" href="styles/forms.css">
 </head>
 <body style="padding-top:100px;">
+
+
 
 <%@include file="includes/nav.jsp"%>
 
@@ -18,7 +21,6 @@
                 <img src="images/nav/logo.png" alt="watchstore">
                 <p>Welcome to WatchStore</p>
             </div>
-            
             <label for="email">Email</label>
             <input placeholder="koushik@gmail.com" type="email" name="email" id="email" for="email">
             <label for="password">Password</label>

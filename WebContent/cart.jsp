@@ -61,7 +61,9 @@ totalCart=Calculate.getTotalCart(carts) ;
 
                 <div class="bottom">
                     <a class="action" id="remove" href="remove-cart?pid=<%=cart.getId() %>">Remove</a>
+                    <% if(auth!=null) {%>
                      <a class="action" id="wishlist"  href="wishlist?pic=<%=cart.getId() %>">Wishlist</a>
+                	<%} %>
                 </div>
             </div>
             <%} %>

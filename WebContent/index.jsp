@@ -16,6 +16,11 @@
 	href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
 	>
 	<script src="scripts/slide.js"></script>
+	<style>
+	a{
+	
+	text-decoration: none;
+	}</style>
 </head>
 
 <body>

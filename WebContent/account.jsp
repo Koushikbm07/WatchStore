@@ -13,6 +13,7 @@
 <body>
 <%@include file="includes/nav.jsp"%>
 
+<% if(auth!=null){ %>
  
     <div class="popup" id="myForm" >
         <div id="close-form" onclick="closeForm()"><i class="fa-solid fa-x"></i></div>
@@ -62,14 +63,14 @@
 
         <div class="account">
          
-            <img src="images\brands\<%=auth.getPhoto() %>" alt="">
+            <img src="images\brands\<%=auth.getPhoto() %>" alt="User Photo">
             <div class="account-info">
-                <strong>Koushik B Malagannavar</strong>
+                <strong><%= auth.getUname() %></strong>
             </div>
         </div>
         <div class="account-grid">
             <div class="grid-items">
-                <a href="" id="order">
+                <a href="orders" id="order">
                     <div class="item">
                         <img src="images\account\orders_icon.png" alt="">
                     </div>
@@ -90,7 +91,7 @@
             </div>
 
         <div class="grid-items">
-            <a href="" id="wishlist">
+            <a href="wishlist.jsp" id="wishlist">
                 <div class="item">
                     <img src="images\account\wishlist_icon_new.png" alt="">
                 </div>
@@ -116,7 +117,7 @@
    
     <button id="logout">Logout</button>
    
-
+<%} %>
 </body>
 <script>
     function openForm() {

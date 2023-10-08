@@ -19,6 +19,8 @@ public class ProfileUpdate extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Part photo=request.getPart("photo");
 		String photoName=Validator.addImage(photo, "user");
+		String uname=request.getParameter("uname");
+		
 		
 		try {
 			

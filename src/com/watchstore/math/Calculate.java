@@ -14,7 +14,7 @@ public class Calculate {
 	public static int getTotalCartDiscount(List<Cart> carts) {
 		int total=0;
 		for(Cart cart:carts) {
-			total+=cart.getDiscount();
+			total+=cart.getDiscount()*cart.getQuantity();
 		}
 		return total;
 	}

@@ -46,8 +46,12 @@ public class Validator {
 			
 			 uploadPath="D:/Koushik_GitHub_Local/WatchStore/watchstore/WebContent/images/products/"+imageFileName;  
 		}
-		else {
+		else if(type.equalsIgnoreCase("brand")){
 			 uploadPath="D:/Koushik_GitHub_Local/WatchStore/watchstore/WebContent/images/brands/"+imageFileName;  
+
+		}
+		else {
+			 uploadPath="D:/Koushik_GitHub_Local/WatchStore/watchstore/WebContent/images/users/"+imageFileName;  
 
 		}
 		

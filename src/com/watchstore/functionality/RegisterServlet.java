@@ -32,6 +32,10 @@ public class RegisterServlet extends HttpServlet {
 		try {
 			
 			dbinjector.addUser(uname, email, password, gender, userType);
+			if(userType.equals("admin")) {
+				response.sendRedirect("admin.jsp");
+				
+			}
 			response.sendRedirect("login.jsp");
 		}
 		catch(Exception e) {

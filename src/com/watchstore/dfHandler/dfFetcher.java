@@ -170,6 +170,7 @@ public class dfFetcher {
 			PreparedStatement ps=conn.prepareStatement(sql);
 			ps.setInt(1, pid);
 			ResultSet rs = ps.executeQuery();
+			
 			rs.next();
 			product.setId(rs.getInt("pid"));
 			product.setTitle(rs.getString("ptitle"));
@@ -179,10 +180,10 @@ public class dfFetcher {
 			product.setDiscount((rs.getInt("pdiscount")));
 			product.setType(rs.getString("ptype"));
 			product.setStock(rs.getInt("pquantity"));
-			product.setBrand(getBrandByProduct(pid));
-			
+			product.setBrand(getBrandByProduct(rs.getInt("brandid")));
 			
 			conn.close();
+			
 			
 		}
 		catch(Exception e) {

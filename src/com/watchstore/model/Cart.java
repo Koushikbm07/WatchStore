@@ -1,6 +1,9 @@
 package com.watchstore.model;
 
-public class Cart extends Product{
+import java.io.Serializable;
+
+public class Cart extends Product implements Serializable {
+
 	private int quantity=1;
 	
 	public Cart(){}

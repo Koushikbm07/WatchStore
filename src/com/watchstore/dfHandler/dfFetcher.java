@@ -33,7 +33,7 @@ public class dfFetcher {
 	}
 
 	public static List<User> fetchUserInfo() throws SQLException {
-		User user=new User();
+		
 		List<User> allUsers=new ArrayList<>();
 		String sql = "select * from users";
 		try {
@@ -41,7 +41,7 @@ public class dfFetcher {
 			Statement st = conn.createStatement();
 			ResultSet rs = st.executeQuery(sql);
 			while(rs.next()) {
-				
+				User user=new User();
 				user.setId(Integer.parseInt(rs.getString(1)));
 				user.setUname(rs.getString("name"));
 				user.setEmail(rs.getString("email"));
@@ -217,6 +217,37 @@ public class dfFetcher {
 		}
 		finally {
 			return blist;
+		}
+	}
+	public static List<Product> getProductsByBrandId(int brandId) {
+		String sql="SELECT * FROM product where brandid=?";
+		List<Product> products=new ArrayList<>();
+		try {
+			Connection conn = dbConnection.getConnection();
+			PreparedStatement ps=conn.prepareStatement(sql);
+			ps.setInt(1, brandId);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()) {
+				Product product = new Product();
+				product.setId(rs.getInt("pid"));
+				product.setTitle(rs.getString("ptitle"));
+				product.setDesc(rs.getString("pdesc"));
+				product.setPrice(rs.getInt("pprice"));
+				product.setPhoto(rs.getString("pphoto"));
+				product.setBrand(getBrandByProduct(brandId));
+				product.setType(rs.getString("ptype"));		
+				product.setStock(rs.getInt("pquantity"));
+				products.add(product);
+				}
+			conn.close();
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("Not able to fetch All Brands Info");
+		}
+		finally {
+			return products;
 		}
 	}
 

@@ -7,13 +7,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.watchstore.model.User;
+
 
 @WebServlet("/logout")
 public class LogoutServlet extends HttpServlet {
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		try {
+			request.getSession().removeAttribute("auth");
+			User auth=(User)request.getSession().getAttribute("auth");
+
+			if(auth==null) {
+				response.sendRedirect("login.jsp");
+			}
+			else {
+				response.sendRedirect("account.jsp");
+			}
+			
+		}
+		catch(Exception e) {
+			System.out.println("Logout Failed");
+			e.printStackTrace();
+			
+		}
 	}
 
 }

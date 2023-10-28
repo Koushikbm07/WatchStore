@@ -22,7 +22,7 @@ public class AddToCart extends HttpServlet {
 		try{
 			ArrayList<Cart> CartList= new ArrayList<>();
 			int pid=Integer.parseInt(request.getParameter("pid"));
-			Cart cart = dfFetcher.getProductbyId(pid);
+			Cart cart = (Cart)dfFetcher.getProductbyId(pid);
 			
 			HttpSession session=request.getSession();
 			

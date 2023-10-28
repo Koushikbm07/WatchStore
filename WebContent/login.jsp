@@ -22,9 +22,9 @@
                 <p>Welcome to WatchStore</p>
             </div>
             <label for="email">Email</label>
-            <input placeholder="koushik@gmail.com" type="email" name="email" id="email" for="email">
+            <input placeholder="koushik@gmail.com" type="email" name="email" id="email" for="email" required>
             <label for="password">Password</label>
-            <input placeholder="**********" type="password" name="password" id="password" for="password">
+            <input placeholder="**********" type="password" name="password" id="password" for="password" required>
             <button type="submit"> Login </button>
             <a href="forgotpassword.jsp">Forget Password ?</a>
             <a href="register.jsp">New to WatchStore ? </a>

@@ -19,8 +19,6 @@ import com.watchstore.dfHandler.dbinjector;
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String uname=request.getParameter("uname");
@@ -32,10 +30,7 @@ public class RegisterServlet extends HttpServlet {
 		try {
 			
 			dbinjector.addUser(uname, email, password, gender, userType);
-			if(userType.equals("admin")) {
-				response.sendRedirect("admin.jsp");
-				
-			}
+			
 			response.sendRedirect("login.jsp");
 		}
 		catch(Exception e) {

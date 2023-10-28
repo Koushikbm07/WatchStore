@@ -1,6 +1,11 @@
+<%@page import="com.watchstore.dfHandler.dfFetcher"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
+<%@page import="com.watchstore.model.*" %>
+<%@page import="java.util.*" %>
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -15,29 +20,17 @@
 <div class="headlines">
         <p>Partnered Brands</p>
     </div>
+    <% List<Brand> brands=dfFetcher.fetchBrandInfo();
+   
+    %>
     <div class="brands-container">
+    <%for(Brand brand : brands){ %>
         <div class="brand">
-            <img src="images\brands\Balmain.jpg" alt="">
+        <a href="brand/<%= brand.getName()%>?bid=<%=brand.getBid()%>">
+            <img src="images\brands\<%=brand.getPhoto()%>" alt="">        
+        </a>
         </div>
-        <div class="brand">
-            <img src="images\brands\Amazefit.jpg" alt="">
-        </div>
-        <div class="brand">
-            <img src="images\brands\Anne_Klein.jpg" alt="">
-        </div>
-        
-        <div class="brand">
-            <img src="images\brands\CALVIN_KLEIN.jpg" alt="">
-        </div>
-        <div class="brand">
-            <img src="images\brands\Armani_Exchange.jpg" alt="">
-        </div>
-        <div class="brand">
-            <img src="images\brands\Anne_Klein.jpg" alt="">
-        </div>
-        <div class="brand">
-            <img src="images\brands\Anne_Klein.jpg" alt="">
-        </div>
+       <%} %> 
     </div>
 
 </body>

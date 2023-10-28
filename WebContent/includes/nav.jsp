@@ -27,8 +27,12 @@ User auth=(User) request.getSession().getAttribute("auth");
         
         <% if(auth==null) {%>
             <a class="item" href="login.jsp">Login</a>
-               <%} else {%> 
+               <%} else { %> 
+              <% if(auth.getType().equals("admin")){ %>
+              <a class="item" href="admin.jsp">${ auth.getUname()}</a> 
+              <% } else {%>
                 <a class="item" href="#">${ auth.getUname()}</a> 
+            <%} %>
             <a class="item" href="wishlist.jsp"><img src="images/nav/wishlist.png" alt=""></a>
      		 <a class="item" href="account.jsp"><i class="fa-regular fa-user"></i></a>
          

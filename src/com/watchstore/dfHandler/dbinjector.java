@@ -45,11 +45,18 @@ public class dbinjector {
 			return true;
 			
 		}
+		catch(SQLException sqle) {
+			sqle.printStackTrace();
+			System.out.println("Brand Already Present");
+			
+		}
 		catch(Exception e) {
 			e.printStackTrace();
 			System.out.println("Brand Not Added ");
 		}
+		 
 		return false;
+		
 		
 	}
 	public static boolean addProduct(String pname,String pdesc,String pimg ,int pprice,int discount,String pType,int pstock,int bid) {

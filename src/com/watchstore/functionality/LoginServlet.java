@@ -27,15 +27,14 @@ public class LoginServlet extends HttpServlet {
 		if(res ) {
 			User user=dfFetcher.fetchUser(email, password);
 			request.getSession().setAttribute("auth", user);
-			if(user.getType().equalsIgnoreCase("admin")) {
-				response.sendRedirect("admin.jsp");
-			}
-			
+		
 			response.sendRedirect("index.jsp");
 			
 		}
 		else {
 			System.out.println("Email and password dont match");
+			response.sendRedirect("login.jsp");
+
 		}
 		}
 		catch(Exception e) {

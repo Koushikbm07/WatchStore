@@ -12,7 +12,6 @@
 <meta charset="ISO-8859-1">
 <title>Admin </title>
 
-<link rel="stylesheet" href="styles/account.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -27,6 +26,18 @@ margin:25px;
 <body>
 
 <%@include file="includes/nav.jsp"%>
+<%
+if(auth!=null){
+	if( !auth.getType().equals("admin")){
+		response.sendRedirect("index.jsp");
+	}
+	
+}
+else{
+	response.sendRedirect("login.jsp");
+}
+
+%>
 <div class="container">
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
   <li class="nav-item" role="presentation">
@@ -63,7 +74,7 @@ margin:25px;
 			    <input type="text" class="form-control" name="bid" id="bid" >
 			  </div>
 			  <div class="mb-3">
-			    <label for="bname" class="form-label">Brand Name</label>
+			    <label for="bname" class="form-label">Brand </label>
 			    <input type="file" class="form-control" name="bname" id="bname" >
 			  </div>
 			  <div class="mb-3">
@@ -140,7 +151,7 @@ margin:25px;
 	
 
 		<%
-			List<User> users=dfFetcher.fetchUserInfo();
+			List<User> usersList=dfFetcher.fetchUserInfo();
 		%>
 	<table class="table">
 	  <thead>
@@ -152,7 +163,8 @@ margin:25px;
 	    </tr>
 	  </thead>
 	  <tbody>
-	  <% for(User user:users){
+	  <% for(User user : usersList){
+		  if(!user.getType().equals("admin")){
 	  
 	  %>
 	    <tr>
@@ -161,7 +173,7 @@ margin:25px;
 	      <td><%= user.getGender() %></td>
 	      <td><%= user.getPhoto()%></td>
 	    </tr>
-	  <% } %>
+	  <% }} %>
 	  </tbody>
 	</table>
 </div>

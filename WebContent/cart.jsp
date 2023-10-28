@@ -32,11 +32,12 @@ totalCart=Calculate.getTotalCart(carts) ;
 }
 %>
 
-<% if(carts!=null && carts.size()>=1){ %>
+<% if(carts!=null && carts.size()>=1 ) {%>
 <strong id="my-cart">My Cart Products ( <%=carts.size() %> ) </strong>
     <div class="cart-container">
         <div class="cart-products">
         <% for(Cart cart : carts){ 
+        	if(cart.getTitle()!=null){
         %>
             <div class="cart-product">
                 <div class="top">
@@ -62,11 +63,11 @@ totalCart=Calculate.getTotalCart(carts) ;
                 <div class="bottom">
                     <a class="action" id="remove" href="remove-cart?pid=<%=cart.getId() %>">Remove</a>
                     <% if(auth!=null) {%>
-                     <a class="action" id="wishlist"  href="wishlist?pic=<%=cart.getId() %>">Wishlist</a>
+                     <a class="action" id="wishlist"  href="wishlist?pid=<%=cart.getId() %>">Wishlist</a>
                 	<%} %>
                 </div>
             </div>
-            <%} %>
+            <%} }%>
         </div>
         <div class="cart-summary">
             <strong>SUMMARY</strong>

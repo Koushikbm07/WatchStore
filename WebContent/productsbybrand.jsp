@@ -8,38 +8,29 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Products</title>
-<link rel="stylesheet" href="styles/watches.css">
+<base href="<%=request.getContextPath()%>/">
+
+<link rel="stylesheet" type="text/css" href="styles/watches.css">
 </head>
 <body>
 
 
 <%@include file="includes/nav.jsp"%>
 
-
-    
-    <div class="select-container">
-        
-        <select name="sort" class="select-box"id="sort">
-            <option value="">Select an Option</option>
-            <option value="low-to-high">Low to High</option>
-            <option value="high-to-low">High to Low</option>
-            <option value="trending">Trending</option>
-        </select>
-        <label for="sort" class="select-label">Sort By  </label>
-    </div>
     <% 
-    	List<Product> productList=dfFetcher.fetchProductsInfo();
+    	List<Product> productList=(List<Product>) request.getAttribute("productsByBrandId");
     %>
     <div class="container">
     
-    <% for(Product product:productList) {%>
+    <% if(productList!=null){
+    for(Product product:productList) {%>
         <div class="container-grid">
 
             <img class="product-image" src="images\products\<%=product.getPhoto() %>" alt="<%=product.getPhoto() %>">
                 <div class="product-summary">
 
-                    <a id="wishlist-btn" href="wishlist?pid=<%=product.getId() %>"><img class="wishlist-img" src="images/nav/wishlist.png" alt=""></a>
-                    <p   class="product-title"><pre  ><%= product.getTitle()%></pre>
+                    <a id="wishlist-btn" href="wishlist.jsp"><img class="wishlist-img js-wishlist-button" src="images\wishlist.png" alt=""></a>
+                    <p   class="product-title"><pre  ><%= product.getTitle() %></pre>
                         <%= product.getDesc() %>
                     </p>
                     <div class="product-price">
@@ -51,7 +42,7 @@
             </div>
 
         </div>
-       <%} %>
+       <%}} %>
     </div>
   
 

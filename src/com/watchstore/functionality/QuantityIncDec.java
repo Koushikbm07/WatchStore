@@ -28,11 +28,11 @@ public class QuantityIncDec extends HttpServlet {
 		Iterator itr=cartList.iterator();
 		while(itr.hasNext()) {
 			Cart cart=(Cart)itr.next();
-			if(action.equals("dec") && cart.getQuantity()>1) {
+			if(action.equals("dec")&& cart.getId()==pid && cart.getQuantity()>1) {
 					cart.setQuantity(cart.getQuantity()-1);
 					break;
 			}
-			else if(action.equals("inc")){
+			else if(action.equals("inc") && cart.getId()==pid){
 				cart.setQuantity(cart.getQuantity()+1);
 				break;
 

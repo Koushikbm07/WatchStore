@@ -115,7 +115,9 @@
     </div>
 
    
-    <button id="logout">Logout</button>
+    <button id="logout" >
+    <a style="text-decoration: none;color:white;" href="logout">Logout</a>
+    </button>
    
 <%} %>
 </body>

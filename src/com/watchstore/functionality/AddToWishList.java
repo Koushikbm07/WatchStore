@@ -29,6 +29,7 @@ public class AddToWishList extends HttpServlet {
 		List<Product> wishList=(List<Product>)request.getSession().getAttribute("wishlist");
 		ArrayList<Cart> cartlist=(ArrayList<Cart>)session.getAttribute("cart-list");
 		List<Product> wishlist=new ArrayList<Product>();
+		
 		if(wishList==null) {
 			wishlist.add(product);
 			session.setAttribute("wishlist", wishlist);
@@ -39,7 +40,7 @@ public class AddToWishList extends HttpServlet {
 			for (Product w : wishlist) {
 				if(w.getId()==pid){
 					exist=true;
-					
+					break;
 				}
 			
 			}
@@ -47,7 +48,20 @@ public class AddToWishList extends HttpServlet {
 				wishlist.add(product);
 			}
 		}
-		response.sendRedirect("remove-cart?pid="+pid);
+		boolean inCart=false;
+		if(cartlist!=null) {
+		for(Cart cart:cartlist) {
+			if(cart.getId()==pid) {
+				inCart=true;
+			}
+		}
+		}
+		if(inCart) {
+			response.sendRedirect("remove-cart?pid="+pid);
+		}else {
+			
+			response.sendRedirect("wishlist.jsp");
+		}
 		
 	}	
 

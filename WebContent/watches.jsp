@@ -37,9 +37,10 @@
 
             <img class="product-image" src="images\products\<%=product.getPhoto() %>" alt="<%=product.getPhoto() %>">
                 <div class="product-summary">
-
+					<% if(auth!=null){ %>
                     <a id="wishlist-btn" href="wishlist?pid=<%=product.getId() %>"><img class="wishlist-img" src="images/nav/wishlist.png" alt=""></a>
-                    <p   class="product-title"><pre  ><%= product.getTitle()%></pre>
+                    <%} %>
+                     <p   class="product-title"><pre  ><%= product.getTitle()%></pre>
                         <%= product.getDesc() %>
                     </p>
                     <div class="product-price">

@@ -46,7 +46,7 @@ List<Product> wishLists=wishList;
                 </div>
 
                 <div class="bottom">
-                    <a class="action" id="remove" href="remove-cart?pid=<%=product.getId() %>">Remove</a>
+                    <a class="action" id="remove" href="remove-wishlist?pid=<%=product.getId() %>">Remove</a>
                     <% if(auth!=null) {%>
                      <a class="action" id="wishlist"  href="add-to-cart?pid=<%=product.getId() %>">Add To Cart</a>
                 	<%} %>

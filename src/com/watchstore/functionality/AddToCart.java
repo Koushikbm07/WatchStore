@@ -27,6 +27,7 @@ public class AddToCart extends HttpServlet {
 			HttpSession session=request.getSession();
 			
 			ArrayList<Cart> cartlist=(ArrayList<Cart>)session.getAttribute("cart-list");
+			List<Product> wishList=(List<Product>)session.getAttribute("wishlist");
 			
 			if(cartlist==null) {
 				CartList.add(cart);
@@ -40,16 +41,23 @@ public class AddToCart extends HttpServlet {
 					if(c.getId()==pid){
 						exist=true;
 						c.setQuantity(c.getQuantity()+1);
-						response.sendRedirect("cart.jsp");
+						
 						
 					}
 				
 				}
 				if (!exist) {
 					CartList.add(cart);
-					response.sendRedirect("index.jsp");
 				}
 			}
+			if(wishList!=null) {
+				for(Product product:wishList) {
+					if(product.getId()==pid) {
+						response.sendRedirect("remove-wishlist?pid="+pid);
+					}
+				}
+			}
+			response.sendRedirect("cart.jsp");
 		}
 		catch (Exception e) {
 			e.printStackTrace();

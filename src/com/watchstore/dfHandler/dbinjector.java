@@ -2,6 +2,8 @@ package com.watchstore.dfHandler;
 
 import java.sql.*;
 
+import com.watchstore.model.User;
+
 public class dbinjector {
 
 
@@ -89,6 +91,57 @@ public class dbinjector {
 		}
 		return false;
 		
+		
+	}
+	
+	public static boolean updateProfile(int id,String uname,String email,String gender,String phone,String photo) {
+		String sql="UPDATE users SET name=?,email=?,gender=?,phone=?,photo=? WHERE id=?";
+		
+		try{
+			Connection conn=dbConnection.getConnection();
+			PreparedStatement pt=conn.prepareStatement(sql);
+			pt.setString(1,uname);
+			pt.setString(2, email);
+			pt.setString(3, gender);
+			pt.setString(4, phone);
+			pt.setString(5, photo);
+			pt.setInt(6, id);
+			ResultSet rs=pt.executeQuery();
+			conn.close();
+			return true;
+			
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+			System.out.println("Profile Update Unsuccessfull");
+		}
+	
+		return false;
+		
+	}
+	public static boolean updateAddress(int id,String street,String address,String pincode,String city,String state) {
+		String sql="UPDATE address SET street=?,address=?,pincode=?,city=?,state=?,country='INDIA' WHERE id=?";
+		
+		try{
+			Connection conn=dbConnection.getConnection();
+			PreparedStatement pt=conn.prepareStatement(sql);
+			pt.setString(1,street);
+			pt.setString(2, address);
+			pt.setString(3, pincode);
+			pt.setString(4, city);
+			pt.setString(5, state);
+			pt.setInt(6, id);
+			ResultSet rs=pt.executeQuery();
+			conn.close();
+			return true;
+			
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+			System.out.println("Profile Update Unsuccessfull");
+		}
+		
+		return false;
 		
 	}
 	

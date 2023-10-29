@@ -6,20 +6,21 @@ public class Address {
 	private String addressLine;
 	private int pincode;
 	private String city;
-	
-	public Address() {}
-	
-	public Address(int addressId, String street, String addressLine, int pincode, String city, String state,
-			String country) {
-		super();
+	private String state;
+	private final String country="INDIA";
+	private int uid;
+	public Address(int addressId, String street, String addressLine, int pincode, String city, String state, int uid) {
 		this.addressId = addressId;
 		this.street = street;
 		this.addressLine = addressLine;
 		this.pincode = pincode;
 		this.city = city;
 		this.state = state;
-		this.country = country;
+		this.uid = uid;
 	}
+	
+	public Address() {}
+	
 	public int getAddressId() {
 		return addressId;
 	}
@@ -59,9 +60,5 @@ public class Address {
 	public String getCountry() {
 		return country;
 	}
-	public void setCountry(String country) {
-		this.country = country;
-	}
-	private String state;
-	private String country;
+	
 }

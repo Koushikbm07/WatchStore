@@ -26,7 +26,9 @@ public class LoginServlet extends HttpServlet {
 		try {
 		if(res ) {
 			User user=dfFetcher.fetchUser(email, password);
+			Address address=dfFetcher.fetchUserAddress(user.getId());
 			request.getSession().setAttribute("auth", user);
+			request.getSession().setAttribute("address", address);
 		
 			response.sendRedirect("index.jsp");
 			

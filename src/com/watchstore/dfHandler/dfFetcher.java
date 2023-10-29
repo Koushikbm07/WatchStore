@@ -250,6 +250,46 @@ public class dfFetcher {
 			return products;
 		}
 	}
+	
+	public static Address fetchUserAddress(int uid) throws SQLException {
+		
+		String sql="select * from address where userid=?";
+		Address address=null;
+		Connection conn=null;
+		try {
+			 conn = dbConnection.getConnection();
+			PreparedStatement ps=conn.prepareStatement(sql);
+			ps.setInt(1, uid);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			
+			
+				
+			 address=new Address(
+					rs.getInt("id"),
+					rs.getString("street"),
+					rs.getString("address"),
+					rs.getInt("pincode"),
+					rs.getString("city"),
+					rs.getString("state"),
+					rs.getInt("userid")
+					);
+	
+			}
+		catch(SQLException e) {
+			System.out.println("Address not available ");
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("Cannot fetch Address");
+		}
+		
+		finally {
+			conn.close();
+			return address;
+		}
+		
+	}
 
 	
 

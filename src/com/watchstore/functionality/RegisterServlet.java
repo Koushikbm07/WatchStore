@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.watchstore.dfHandler.dbConnection;
 import com.watchstore.dfHandler.dbinjector;
+import com.watchstore.dfHandler.dfFetcher;
+import com.watchstore.model.User;
 
 /**
  * Servlet implementation class LoginServlet
@@ -30,7 +32,8 @@ public class RegisterServlet extends HttpServlet {
 		try {
 			
 			dbinjector.addUser(uname, email, password, gender, userType);
-			
+			User user=dfFetcher.fetchUser(email, password);
+			dbinjector.addUserId(user.getId());
 			response.sendRedirect("login.jsp");
 		}
 		catch(Exception e) {

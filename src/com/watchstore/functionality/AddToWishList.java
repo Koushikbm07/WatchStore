@@ -23,8 +23,17 @@ public class AddToWishList extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int pid=Integer.parseInt(request.getParameter("pid"));
-		Product product=dfFetcher.getProductbyId(pid);
+		Product product=null;
+		int pid=-1;
+		try {
+			
+		 pid=Integer.parseInt(request.getParameter("pid"));
+		 product=dfFetcher.getProductbyId(pid);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("Something wrong in AddToWishList Servlets");
+		}
 		HttpSession session=request.getSession();
 		List<Product> wishList=(List<Product>)request.getSession().getAttribute("wishlist");
 		ArrayList<Cart> cartlist=(ArrayList<Cart>)session.getAttribute("cart-list");

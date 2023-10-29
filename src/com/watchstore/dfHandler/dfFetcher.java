@@ -8,25 +8,26 @@ import com.watchstore.model.*;
 public class dfFetcher {
 
 
-	public static String fetchPassword(String email) {
+	public static String fetchPassword(String email) throws SQLException  {
 
 		String sql = "SELECT password from users WHERE email=?";
 		String Password = "";
-		
+		Connection conn=null;
 		try {
 			
-			Connection conn = dbConnection.getConnection();
+			 conn = dbConnection.getConnection();
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, email);
 			ResultSet rs = ps.executeQuery();
 			rs.next();
 			Password = rs.getString(1);
-			conn.close();
 
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
+			conn.close();
+
 			return Password;
 		}
 
@@ -36,8 +37,9 @@ public class dfFetcher {
 		
 		List<User> allUsers=new ArrayList<>();
 		String sql = "select * from users";
+		Connection conn=null;
 		try {
-			Connection conn = dbConnection.getConnection();
+			 conn = dbConnection.getConnection();
 			Statement st = conn.createStatement();
 			ResultSet rs = st.executeQuery(sql);
 			while(rs.next()) {
@@ -53,12 +55,12 @@ public class dfFetcher {
 				user.setType(rs.getString("type"));
 				allUsers.add(user);
 			}
-			conn.close();
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
 		finally {
+			conn.close();
 			return allUsers;
 		}
 	}
@@ -67,9 +69,9 @@ public class dfFetcher {
 		List<Product> plist = new ArrayList<Product>();
 		String sql = "SELECT * FROM PRODUCT";
 		String brandQuery="	SELECT * FROM (SELECT bid,bname,photo FROM BRAND JOIN PRODUCT ON BRAND.bid=PRODUCT.brandid) WHERE bid=?";
-		
+		Connection conn=null;
 		try {
-			Connection conn = dbConnection.getConnection();
+			 conn = dbConnection.getConnection();
 
 			Statement st = conn.createStatement();
 			ResultSet rs = st.executeQuery(sql);
@@ -96,7 +98,6 @@ public class dfFetcher {
 						
 				plist.add(product);
 			}
-			conn.close();
 
 
 		} catch (Exception e) {
@@ -104,16 +105,18 @@ public class dfFetcher {
 			e.printStackTrace();
 		} 
 		finally {
+			conn.close();
 			return plist;
 		}
 	
 	}
 
-	public static User fetchUser(String email, String pass) {
+	public static User fetchUser(String email, String pass) throws SQLException {
 		String sql = "SELECT * FROM users where email=? and password=?";
 		User user = new User();
+		Connection conn=null;
 		try {
-			Connection conn = dbConnection.getConnection();
+			 conn = dbConnection.getConnection();
 			PreparedStatement st = conn.prepareStatement(sql);
 			st.setString(1, email);
 			st.setString(2, pass);
@@ -128,22 +131,23 @@ public class dfFetcher {
 					user.setType(rs.getString("type"));
 					user.setPhone(rs.getString("phone"));
 					user.setPhoto(rs.getString("photo"));
-					conn.close();
 
 		} catch (Exception e) {
 			System.out.println("Cannot get user details");
 			e.printStackTrace();
 		} finally {
+			conn.close();
 			return user;
 		}
 		
 
 	}
-	public static Brand getBrandByProduct(int  brandId) {
+	public static Brand getBrandByProduct(int  brandId) throws SQLException {
 		String sql="SELECT * FROM brand where bid=?";
 		Brand brand=new Brand();
+		Connection conn=null;
 		try {
-			Connection conn = dbConnection.getConnection();
+			 conn = dbConnection.getConnection();
 			PreparedStatement ps=conn.prepareStatement(sql);
 			ps.setInt(1, brandId);
 			ResultSet rs = ps.executeQuery();
@@ -154,19 +158,21 @@ public class dfFetcher {
 			
 			
 		}
-		catch(Exception e) {
+		catch(SQLException e) {
 			e.printStackTrace();
 			System.out.println("Failed to get Brand By Product");
 		}
 		finally {
+			conn.close();
 			return brand;
 		}
 	}
-	public static Cart getProductbyId(int  pid) {
+	public static Cart getProductbyId(int  pid) throws SQLException {
 		String sql="SELECT * FROM product where pid=?";
 		Cart product=new Cart();
+		Connection conn=null;
 		try {
-			Connection conn = dbConnection.getConnection();
+			 conn = dbConnection.getConnection();
 			PreparedStatement ps=conn.prepareStatement(sql);
 			ps.setInt(1, pid);
 			ResultSet rs = ps.executeQuery();
@@ -182,7 +188,6 @@ public class dfFetcher {
 			product.setStock(rs.getInt("pquantity"));
 			product.setBrand(getBrandByProduct(rs.getInt("brandid")));
 			
-			conn.close();
 			
 			
 		}
@@ -191,14 +196,16 @@ public class dfFetcher {
 			System.out.println("Failed to get Cart Product By Id");
 		}
 		finally {
+			conn.close();
 			return product;
 		}
 	}
-	public static List<Brand> fetchBrandInfo(){
+	public static List<Brand> fetchBrandInfo() throws SQLException{
 		String sql="SELECT * FROM brand";
 		List<Brand> blist=new ArrayList<>();
+		Connection conn=null;
 		try {
-			Connection conn = dbConnection.getConnection();
+			 conn = dbConnection.getConnection();
 			PreparedStatement ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
@@ -208,7 +215,6 @@ public class dfFetcher {
 				brand.setPhoto(rs.getString("photo"));
 				blist.add(brand);
 			}
-			conn.close();
 			
 		}
 		catch(Exception e) {
@@ -216,14 +222,16 @@ public class dfFetcher {
 			System.out.println("Not able to fetch All Brands Info");
 		}
 		finally {
+			conn.close();
 			return blist;
 		}
 	}
-	public static List<Product> getProductsByBrandId(int brandId) {
+	public static List<Product> getProductsByBrandId(int brandId) throws SQLException {
 		String sql="SELECT * FROM product where brandid=?";
 		List<Product> products=new ArrayList<>();
+		Connection conn=null;
 		try {
-			Connection conn = dbConnection.getConnection();
+			 conn = dbConnection.getConnection();
 			PreparedStatement ps=conn.prepareStatement(sql);
 			ps.setInt(1, brandId);
 			ResultSet rs=ps.executeQuery();
@@ -239,7 +247,6 @@ public class dfFetcher {
 				product.setStock(rs.getInt("pquantity"));
 				products.add(product);
 				}
-			conn.close();
 			
 		}
 		catch(Exception e) {
@@ -247,6 +254,7 @@ public class dfFetcher {
 			System.out.println("Not able to fetch All Brands Info");
 		}
 		finally {
+			conn.close();
 			return products;
 		}
 	}
@@ -263,10 +271,7 @@ public class dfFetcher {
 			ResultSet rs=ps.executeQuery();
 			rs.next();
 			
-			
-				
 			 address=new Address(
-					rs.getInt("id"),
 					rs.getString("street"),
 					rs.getString("address"),
 					rs.getInt("pincode"),
@@ -277,6 +282,7 @@ public class dfFetcher {
 	
 			}
 		catch(SQLException e) {
+			e.printStackTrace();
 			System.out.println("Address not available ");
 		}
 		catch(Exception e) {
@@ -286,6 +292,7 @@ public class dfFetcher {
 		
 		finally {
 			conn.close();
+
 			return address;
 		}
 		

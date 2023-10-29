@@ -27,6 +27,8 @@ public class ProductsByBrand extends HttpServlet {
 		String par = request.getParameter("bid");
 		List<Product> products=null;
 		int bid = -1;
+		try {
+			
 		if (par != null) {
 			bid = Integer.parseInt(par);
 			products = dfFetcher.getProductsByBrandId(bid);
@@ -39,6 +41,11 @@ public class ProductsByBrand extends HttpServlet {
 	        response.sendRedirect(request.getContextPath() + "/");
 		}
 
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("Something Wrong in ProductsByBrandID Servlets");
+		}
 	}
 
 }

@@ -106,7 +106,7 @@ public class dbinjector {
 			pt.setString(4, phone);
 			pt.setString(5, photo);
 			pt.setInt(6, id);
-			ResultSet rs=pt.executeQuery();
+			pt.executeQuery();
 			conn.close();
 			return true;
 			
@@ -120,9 +120,10 @@ public class dbinjector {
 		
 	}
 	public static boolean updateAddress(int id,String street,String address,String pincode,String city,String state) {
-		String sql="UPDATE address SET street=?,address=?,pincode=?,city=?,state=?,country='INDIA' WHERE id=?";
+		String sql="UPDATE address SET street=?,address=?,pincode=?,city=?,state=?,country='INDIA' WHERE userid=?";
 		
 		try{
+			
 			Connection conn=dbConnection.getConnection();
 			PreparedStatement pt=conn.prepareStatement(sql);
 			pt.setString(1,street);
@@ -131,20 +132,48 @@ public class dbinjector {
 			pt.setString(4, city);
 			pt.setString(5, state);
 			pt.setInt(6, id);
-			ResultSet rs=pt.executeQuery();
+			int res=pt.executeUpdate();
 			conn.close();
-			return true;
 			
+			boolean updated=(res>=0)? true: false;
+			System.out.println(updated);
+			return updated;
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
-			System.out.println("Profile Update Unsuccessfull");
+			System.out.println("Address Update Unsuccessfull");
+		}
+		catch(Exception e) {
+			e.printStackTrace();
 		}
 		
 		return false;
 		
 	}
-	
+	public static boolean addUserId(int userId) throws SQLException {
+		String sql="INSERT INTO address(userid) VALUES(?)";
+		Connection conn=null;
+		try {
+			 conn=dbConnection.getConnection();
+			PreparedStatement pt=conn.prepareStatement(sql);
+			pt.setInt(1,userId);
+			pt.executeQuery();
+			
+			return true;
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+			System.out.println("used id not added into address table ");
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		
+		}
+		finally {
+			conn.close();
+		}
+		return false;
+	}
 
 	
 	

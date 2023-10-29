@@ -42,8 +42,8 @@
             <label for="name">Street</label>
             <input type="text" name="street" value=<%=(address!=null)?address.getStreet():"" %>>
             <label for="name">Address</label>
-            <textarea name="address" rows="3" cols="50" value= <%=(address!=null)?address.getAddressId():"" %>>
-           
+            <textarea name="address" rows="3" cols="50" value= <%=(address!=null)?address.getAddressLine():"" %>>
+           <%=(address!=null)?address.getAddressLine():"" %>
 			</textarea>
             
             <label for="city">City</label>

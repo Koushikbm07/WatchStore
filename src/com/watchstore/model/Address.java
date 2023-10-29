@@ -1,7 +1,6 @@
 package com.watchstore.model;
 
 public class Address {
-	private int addressId;
 	private String street;
 	private String addressLine;
 	private int pincode;
@@ -9,8 +8,7 @@ public class Address {
 	private String state;
 	private final String country="INDIA";
 	private int uid;
-	public Address(int addressId, String street, String addressLine, int pincode, String city, String state, int uid) {
-		this.addressId = addressId;
+	public Address( String street, String addressLine, int pincode, String city, String state, int uid) {
 		this.street = street;
 		this.addressLine = addressLine;
 		this.pincode = pincode;
@@ -21,12 +19,7 @@ public class Address {
 	
 	public Address() {}
 	
-	public int getAddressId() {
-		return addressId;
-	}
-	public void setAddressId(int addressId) {
-		this.addressId = addressId;
-	}
+	
 	public String getStreet() {
 		return street;
 	}
